@@ -1,0 +1,29 @@
+Tabelas: 
+
+clientes
+id - int (PK) 
+razao_social - varchar(255)
+id_estado - int (FK)
+
+telefones
+id - int (PK)
+numero - varchar(20)
+id_cliente - int (FK) 
+id_tipo_telefone - int (FK)
+
+tipos_telefone
+id – int (PK)
+tipo – varchar(50)
+
+estados
+id – int (PK)
+sigla – varchar(2)
+nome – varchar(100)
+
+
+SELECT c.id_cliente, c.razao_social, t.numero
+FROM clientes c
+JOIN telefones t ON c.id_cliente = t.id_cliente
+JOIN estados e ON c.id_estado = e.id_estado
+WHERE e.sigla = 'SP';
+
